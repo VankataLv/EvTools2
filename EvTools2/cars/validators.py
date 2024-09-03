@@ -1,7 +1,7 @@
 from django.core.validators import MinLengthValidator, RegexValidator
 
 name_validator = RegexValidator(
-    # Cyrillic, Greek other letters can be added later to the regex pattern above
+    # Cyrillic, Greek & other letters can be added later to the regex pattern above
     regex=r"^[A-Z][a-z'’-]{1,49}$",
     message='First name must start with a capital letter and contain only lowercase letters, apostrophes, or hyphens. '
             'Length must be between 2 to 50 characters.',

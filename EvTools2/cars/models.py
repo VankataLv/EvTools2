@@ -79,6 +79,7 @@ class EVCar(models.Model):
         ("Hatch", "Hatchback"),
         ("Station wagon", "Station wagon"),
         ("Coupe", "Coupe"),
+        ("SUV", "SUV"),
     ]
     COLOR_CHOICES = [
         ("White", "White"),
@@ -103,8 +104,8 @@ class EVCar(models.Model):
     # def filter_choices(cls):
     #     return [(model_obj.id, model_obj.name) for model_obj in CarModel.objects.filter('brand')]
 
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, )
-    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE, )
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE)
     model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
     year = models.IntegerField(
         validators=[
@@ -145,6 +146,7 @@ class EVCar(models.Model):
             MaxValueValidator(10_000),
         ],
         default=None,
+        help_text='WLTP rating',
     )
 
     drivetrain = models.CharField(

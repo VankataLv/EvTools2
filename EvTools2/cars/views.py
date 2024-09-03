@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-from EvTools2.cars.forms import UserForm
+from EvTools2.cars.forms import UserForm, CarForm
 
 
 def index(request):
@@ -9,14 +9,43 @@ def index(request):
 
 
 def create_user(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        form = UserForm(request.POST)
+
+    else:  # request.method == 'GET':
         form = UserForm()
 
-    elif request.method == 'POST':
-        form = UserForm(request.POST)
+    if request.method == 'POST':
         if form.is_valid():
             form.save()
+            return redirect('index')
 
-    return render(request, 'cars/create_user_form.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'cars/create_user_form.html', context)
+
+
+from django.shortcuts import render, redirect
+from .forms import CarForm
+
+
+def create_car(request):
+    if request.method == 'POST':
+        form = CarForm(request.POST)
+    else:  # request.method == 'GET':
+        # brand_id = request.POST.get('brand_id')
+        # form = CarForm(brand_id=brand_id)
+        form = CarForm()
+
+    if request.method == 'POST':
+        form = CarForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+
+    context = {'form': form}
+    return render(request, 'cars/create_car_form.html', context)
+
+
+
 
 

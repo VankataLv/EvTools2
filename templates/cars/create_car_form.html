@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Car</title>
+</head>
+<body>
+    <h1>New Car form</h1>
+    <form method="post" action="{% url 'create car' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Car</button>
+    </form>
+</body>
+</html>
