@@ -40,7 +40,8 @@ class User(models.Model):
     image_url = models.URLField(
         # For now the image of the user will be stored only as URL to local HD
         max_length=200,
-        blank=True, null=True
+        blank=True, null=True,
+        default='staticfiles/images/test_image.png'
     )
 
     created_on = models.DateField(auto_now_add=True, )
@@ -53,7 +54,7 @@ class User(models.Model):
 
 
 class CarBrand(models.Model):
-    name = models.CharField(max_length=50,)
+    name = models.CharField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
@@ -61,7 +62,10 @@ class CarBrand(models.Model):
 
 class CarModel(models.Model):
     brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE,)
-    name = models.CharField(max_length=50,)
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        unique_together = ('brand', 'name')
 
     def __str__(self):
         return self.name
@@ -100,13 +104,20 @@ class EVCar(models.Model):
         (6, 6),
     ]
 
+    LOCATION_CHOICES = [
+        ('Sofia', 'Sofia'),
+        ('Varna', 'Varna'),
+        ('Burgas', 'Burgas'),
+        ('Not in country', 'Not in country')
+    ]
+
     # @classmethod
     # def filter_choices(cls):
     #     return [(model_obj.id, model_obj.name) for model_obj in CarModel.objects.filter('brand')]
 
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    brand = models.ForeignKey(CarBrand, on_delete=models.CASCADE)
-    model = models.ForeignKey(CarModel, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cars')
+    brand = models.ForeignKey(CarBrand, on_delete=models.DO_NOTHING, related_name='cars')
+    model = models.ForeignKey(CarModel, on_delete=models.DO_NOTHING, related_name='cars')
     year = models.IntegerField(
         validators=[
             MinValueValidator(1900),
@@ -152,30 +163,37 @@ class EVCar(models.Model):
     drivetrain = models.CharField(
         max_length=15,
         choices=DRIVETRAIN_CHOICES,
-        default='unknown'
+        default='unknown',
     )
 
     body_type = models.CharField(
         max_length=15,
         choices=BODY_TYPE_CHOICES,
-        default='unknown'
+        default='unknown',
     )
 
     color = models.CharField(
         max_length=15,
         choices=COLOR_CHOICES,
-        default='unknown'
+        default='unknown',
     )
 
     description = models.TextField()
 
+    location = models.CharField(
+        max_length=15,
+        choices=LOCATION_CHOICES,
+    )
+
     doors = models.IntegerField(
         choices=DOORS_CHOICES,
-        default=4
+        default=4,
     )
+
     vin = models.CharField(
         max_length=50,
-        default='unknown'
+        default='unknown',
+        help_text="Vehicle Identification Number"
     )
 
     def __str__(self):
