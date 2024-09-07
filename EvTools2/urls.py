@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from EvTools2.cars.views import index
+from EvTools2.common.views import index
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    "EvTools2.cars"
+    "EvTools2.common",
+    "EvTools2.cars",
 ]
 
 MIDDLEWARE = [

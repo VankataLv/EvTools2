@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/test1.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/test_image.png' %}">
+    <title>EvTools</title>
+</head>
+<body>
+    <header>
+        <div class="logo">EV Tools</div>
+        <div class="tagline">All EV in one spot</div>
+        <nav>
+            <a href="{% url 'index'%}">Home</a>
+            <a href="{% url 'car index'%}">Cars</a>
+            <a href="#">Repair & Maintenance</a>
+            <a href="#">Services</a>
+            <a href="#">Parts</a>
+            <a href="https://ev-database.org/">Database</a>
+            <a href="https://vsichkotok.bg/">Charging</a>
+        </nav>
+    </header>
+
+    <main>        
+        {% block main_content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contacts</a>
+        </div>
+        <div class="footer-text">
+            &copy; 2024 EV Tools. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

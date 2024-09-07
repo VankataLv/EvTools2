@@ -1,33 +1,15 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/test1.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/test_image.png' %}">
-    <title>EvTools</title>
-
-</head>
-<body>
-    <header>
-        <div class="logo">EV Car Hub</div>
-        <div class="tagline">Drive the Future, Drive Electric</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Cars</a>
-            <a href="#">Brands</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
+{% extends 'base_template.html' %}
 
     <main>
-        <h1>Welcome to EV Car Hub</h1>
+    {% block main_content %}
+        
+        <h1>Available cars</h1>
         <div class="car-list">
             {% if cars %}
                 {% for car in cars %}
                     <div class="car-item">
-                        <h2>{{ car.brand.name }}: {{ car.model.name }} - {{ car.year }}</h2>
+                        <h2>{{ car }}</h2>
+                        <p><span>Trim Level:</span> {{ car.trim_level }}</p>
                         <p><span>Asking Price:</span> €{{ car.asking_price }}</p>
                         <p><span>Mileage:</span> {{ car.mileage }} km</p>
                         <p><span>Battery Capacity:</span> {{ car.battery_capacity }} kWh</p>
@@ -46,17 +28,5 @@
                 <p>No cars available at the moment.</p>
             {% endif %}
         </div>
+    {% endblock %}
     </main>
-
-    <footer>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Help</a>
-        </div>
-        <div class="footer-text">
-            &copy; 2024 EV Car Hub. All rights reserved.
-        </div>
-    </footer>
-</body>
-</html>

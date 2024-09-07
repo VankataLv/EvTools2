@@ -3,7 +3,7 @@ from EvTools2.cars.forms import UserForm, CarForm
 from EvTools2.cars.models import EVCar
 
 
-def index(request):
+def car_index(request):
     cars = EVCar.objects.all()
     context = {'cars': cars, }
     return render(request, 'cars/car_index.html', context)

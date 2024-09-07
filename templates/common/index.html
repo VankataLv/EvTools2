@@ -1,0 +1,13 @@
+{% extends 'base_template.html' %}
+
+{% block main_content %}
+    <h2>This is the index of the app</h2>
+    <ul>
+        <li><a href="{% url 'car index'%}">Cars</a><i class='fas fa-brush'></i></li>
+        <li><a href="#">Repair & Maintenance</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Parts</a></li>
+        <li><a href="https://ev-database.org/">Database</a></li>
+        <li><a href="https://vsichkotok.bg/">Charging</a></li>
+    </ul>
+{% endblock %}

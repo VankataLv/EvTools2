@@ -118,6 +118,7 @@ class EVCar(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cars')
     brand = models.ForeignKey(CarBrand, on_delete=models.DO_NOTHING, related_name='cars')
     model = models.ForeignKey(CarModel, on_delete=models.DO_NOTHING, related_name='cars')
+    trim_level = models.CharField(max_length=50, default='unknown')
     year = models.IntegerField(
         validators=[
             MinValueValidator(1900),
@@ -178,7 +179,7 @@ class EVCar(models.Model):
         default='unknown',
     )
 
-    description = models.TextField()
+    description = models.TextField(blank=True)
 
     location = models.CharField(
         max_length=15,
