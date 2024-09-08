@@ -1,0 +1,23 @@
+.car-list {
+     margin-top: 20px;
+ }
+
+ .car-item {
+     border: 1px solid #ddd;
+     border-radius: 5px;
+     padding: 15px;
+     margin-bottom: 15px;
+     background-color: #f9f9f9;
+ }
+
+ .car-item h2 {
+     margin-top: 0;
+ }
+
+ .car-item p {
+     margin: 5px 0;
+ }
+
+ .car-item span {
+     font-weight: bold;
+ }

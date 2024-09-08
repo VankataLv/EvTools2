@@ -41,7 +41,7 @@ class User(models.Model):
         # For now the image of the user will be stored only as URL to local HD
         max_length=200,
         blank=True, null=True,
-        default='staticfiles/images/test_image.png'
+        default='staticfiles/images/icon_image.png'
     )
 
     created_on = models.DateField(auto_now_add=True, )

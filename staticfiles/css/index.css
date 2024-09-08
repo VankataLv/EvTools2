@@ -1,0 +1,39 @@
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 40px;
+    margin: 5px 5px; /* margin between cards */
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px black solid;
+}
+
+.card i {
+    font-size: 80px;
+    margin-bottom: 15px; /* Space between icon and text */
+}
+
+.card span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card:hover {
+    background-color: #bbbdbf;
+    transform: translateY(-15px); /* Lift on hover */
+
+}

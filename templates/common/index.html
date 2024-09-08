@@ -1,13 +1,29 @@
 {% extends 'base_template.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
 
 {% block main_content %}
-    <h2>This is the index of the app</h2>
-    <ul>
-        <li><a href="{% url 'car index'%}">Cars</a><i class='fas fa-brush'></i></li>
-        <li><a href="#">Repair & Maintenance</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Parts</a></li>
-        <li><a href="https://ev-database.org/">Database</a></li>
-        <li><a href="https://vsichkotok.bg/">Charging</a></li>
-    </ul>
+    <a href="{% url 'car index' %}" class="card">
+        <i class="fa-solid fa-car-side"></i>
+        <span>Cars</span>
+    </a>
+    
+    <a href="#" class="card">
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <span>Repair & Maintenance</span>
+    </a>
+    
+    <a href="#" class="card">
+        <i class="fa-regular fa-handshake"></i>
+        <span>Services</span>
+    </a>
+    
+    <a href="#" class="card">
+        <i class="fa-solid fa-gears"></i>
+        <span>Parts</span>
+    </a>
 {% endblock %}

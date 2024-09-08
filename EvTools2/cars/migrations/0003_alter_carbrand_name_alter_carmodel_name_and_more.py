@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='image_url',
-            field=models.URLField(blank=True, default='staticfiles/images/test_image.png', null=True),
+            field=models.URLField(blank=True, default='staticfiles/images/icon_image.png', null=True),
         ),
         migrations.AlterUniqueTogether(
             name='carmodel',

@@ -1,0 +1,13 @@
+@import url(header_footer.css);
+@import url(reset.css);
+@import url(typography.css);
+
+body {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+ main {
+     padding: 10px;
+ }
+

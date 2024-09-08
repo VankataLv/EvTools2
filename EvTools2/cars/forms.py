@@ -8,7 +8,6 @@ class UserForm(forms.ModelForm):
         exclude = ['banned']
 
 
-
 class CarForm(forms.ModelForm):
 
     class Meta:

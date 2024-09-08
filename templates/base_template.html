@@ -3,8 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/test1.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/test_image.png' %}">
+    <link rel="stylesheet" href="{% static 'css/site_base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/icon_image.png' %}">
+    {% block styles %}
+    {% endblock %}
     <title>EvTools</title>
 </head>
 <body>
@@ -12,16 +15,15 @@
         <div class="logo">EV Tools</div>
         <div class="tagline">All EV in one spot</div>
         <nav>
-            <a href="{% url 'index'%}">Home</a>
-            <a href="{% url 'car index'%}">Cars</a>
-            <a href="#">Repair & Maintenance</a>
-            <a href="#">Services</a>
-            <a href="#">Parts</a>
-            <a href="https://ev-database.org/">Database</a>
-            <a href="https://vsichkotok.bg/">Charging</a>
+            <a href="{% url 'index'%}"><i class="fa-solid fa-house-chimney"></i> Home</a>
+            <a href="{% url 'car index'%}"><i class="fa-solid fa-car-side"></i> Cars</a>
+            <a href="#"><i class="fa-solid fa-screwdriver-wrench"></i> Repair & Maintenance</a>
+            <a href="#"><i class="fa-regular fa-handshake"></i> Services</a>
+            <a href="#"><i class="fa-solid fa-gears"></i> Parts</a>
+            <a href="https://ev-database.org/"><i class="fa-solid fa-database"></i> Database</a>
+            <a href="https://vsichkotok.bg/"><i class="fa-solid fa-charging-station"></i> Charging</a>
         </nav>
     </header>
-
     <main>        
         {% block main_content %}
         {% endblock %}
