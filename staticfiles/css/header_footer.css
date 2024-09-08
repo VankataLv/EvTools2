@@ -4,8 +4,57 @@ header {
     padding: 1px 20px 1px 20px;
     text-align: center;
     border-bottom: 5px solid #00bfff;
+    position: relative;
+}
+ .logo {
+     font-size: 2.0em;
+     font-weight: bold;
+     margin-bottom: 10px;
+ }
+
+ .tagline {
+     font-style: italic;
+     font-size: 1.5em;
+     margin-top: 5px;
+ }
+/*---------------------------------------------create car button-----------------------------------------------------*/
+.create-car-button {
+    position: absolute; /* Positioning the button absolutely within the header */
+    left: 20px; /* Move button to the left */
+    top: 50%; /* Center vertically within the header */
+    transform: translateY(-50%); /* Adjust for vertical centering */
 }
 
+.create-car-button button {
+    padding: 15px 25px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.create-car-button button .plus-icon {
+    font-size: 22px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.create-car-button button:hover {
+    background-color: #0056b3;
+}
+
+.create-car-button button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #0056b3;
+}
+/*---------------------------------------------Navigation-----------------------------------------------------*/
  nav {
      margin-top: 5px;
  }
@@ -22,18 +71,8 @@ header {
      text-decoration: underline;
  }
 
- .logo {
-     font-size: 2.0em;
-     font-weight: bold;
-     margin-bottom: 10px;
- }
 
- .tagline {
-     font-style: italic;
-     font-size: 1.5em;
-     margin-top: 5px;
- }
-
+/*---------------------------------------------Navigation-----------------------------------------------------*/
  footer {
      background: #006400;
      color: white;

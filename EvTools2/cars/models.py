@@ -3,8 +3,6 @@ from EvTools2.cars.validators import name_validator, nickname_validator, phone_n
 from django.core.validators import MinValueValidator, MaxValueValidator
 from datetime import datetime
 
-# Create your models here.
-
 
 class User(models.Model):
     first_name = models.CharField(
@@ -26,14 +24,14 @@ class User(models.Model):
         max_length=16,
         validators=[phone_number_validator, ],
         help_text='Enter a phone number. No dashes, slashes or spaces are allowed. '
-                  'Your number will be displayed only of you decide',
+                  'Your number will be displayed only if you decide',
         unique=True,
     )
     email = models.EmailField(
         max_length=50,
         validators=[e_mail_validator, ],
         help_text='Enter a valid email address. '
-                  'Your email will be displayed only of you decide',
+                  'Your email will be displayed only if you decide',
         unique=True,
     )
 

@@ -4,33 +4,36 @@
     <link rel="stylesheet" href="{% static 'css/car_index.css' %}">
 {% endblock %}
 
-    <main>
+<main>
     {% block main_content %}
-        
-        <h1>Available cars</h1>
+        <h2>Available cars:</h2>
         <div class="car-list">
             {% if cars %}
                 {% for car in cars %}
-                    <div class="car-item">
-                        <h2>{{ car }}</h2>
-                        <p><span>Trim Level:</span> {{ car.trim_level }}</p>
-                        <p><span>Asking Price:</span> €{{ car.asking_price }}</p>
-                        <p><span>Mileage:</span> {{ car.mileage }} km</p>
-                        <p><span>Battery Capacity:</span> {{ car.battery_capacity }} kWh</p>
-                        <p><span>Horsepower:</span> {{ car.horsepower }} HP</p>
-                        <p><span>Range:</span> {{ car.range }} km</p>
-                        <p><span>Drivetrain:</span> {{ car.get_drivetrain_display }}</p>
-                        <p><span>Body Type:</span> {{ car.get_body_type_display }}</p>
-                        <p><span>Color:</span> {{ car.get_color_display }}</p>
-                        <p><span>Description:</span> {{ car.description }}</p>
-                        <p><span>Location:</span> {{ car.get_location_display }}</p>
-                        <p><span>Doors:</span> {{ car.doors }}</p>
-                        <p><span>VIN:</span> {{ car.vin }}</p>
-                    </div>
+                    <article class="car-card">
+                        <header>
+                            <h3>{{ car }}</h3>
+                        </header>
+                        <ul>
+                            <li><strong>Trim Level:</strong> {{ car.trim_level }}</li>
+                            <li><strong>Asking Price:</strong> €{{ car.asking_price|floatformat:2 }}</li>
+                            <li><strong>Mileage:</strong> {{ car.mileage }} km</li>
+                            <li><strong>Battery Capacity:</strong> {% if car.battery_capacity %}{{ car.battery_capacity }} kWh{% else %}Not available{% endif %}</li>
+                            <li><strong>Horsepower:</strong> {{ car.horsepower }} HP</li>
+                            <li><strong>Range:</strong> {{ car.range }} km</li>
+                            <li><strong>Drivetrain:</strong> {{ car.get_drivetrain_display }}</li>
+                            <li><strong>Body Type:</strong> {{ car.get_body_type_display }}</li>
+                            <li><strong>Color:</strong> {{ car.get_color_display }}</li>
+                            <li><strong>Description:</strong> {{ car.description }}</li>
+                            <li><strong>Location:</strong> {{ car.get_location_display }}</li>
+                            <li><strong>Doors:</strong> {{ car.doors }}</li>
+                            <li><strong>VIN:</strong> {{ car.vin }}</li>
+                        </ul>
+                    </article>
                 {% endfor %}
             {% else %}
                 <p>No cars available at the moment.</p>
             {% endif %}
         </div>
     {% endblock %}
-    </main>
+</main>

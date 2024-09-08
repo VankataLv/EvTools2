@@ -14,9 +14,16 @@
     <header>
         <div class="logo">EV Tools</div>
         <div class="tagline">All EV in one spot</div>
+        <div class="create-car-button">
+            <a href="{% url 'create car' %}">
+                <button type="button">
+                    <span class="plus-icon">+</span> Sell your EV
+                </button>
+            </a>
+        </div>
         <nav>
             <a href="{% url 'index'%}"><i class="fa-solid fa-house-chimney"></i> Home</a>
-            <a href="{% url 'car index'%}"><i class="fa-solid fa-car-side"></i> Cars</a>
+            <a href="{% url 'car index'%}"><i class="fa-solid fa-car-side"></i> Cars for sale</a>
             <a href="#"><i class="fa-solid fa-screwdriver-wrench"></i> Repair & Maintenance</a>
             <a href="#"><i class="fa-regular fa-handshake"></i> Services</a>
             <a href="#"><i class="fa-solid fa-gears"></i> Parts</a>
