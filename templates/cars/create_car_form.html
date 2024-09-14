@@ -1,19 +1,22 @@
+{% extends 'base_template.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create new Car</title>
-{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>#}
-</head>
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/car_form.css' %}">
+{% endblock %}
+    <title>Create New Car</title>
+
 <body>
-
-    <h1>New Car form</h1>
-    <form method="post" action="{% url 'create car' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Car</button>
-    </form>
-
+    <main>
+        {% block main_content %}
+            <h2>New Car Form:</h2>
+            <form method="post" action="{% url 'create ev car' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+        
+                <button type="submit">Add Car</button>
+            </form>
+        {% endblock %}
+    </main>
 </body>
-</html>
+
+

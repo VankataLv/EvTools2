@@ -9,16 +9,13 @@
      margin-bottom: 15px;
      background-color: #f9f9f9;
  }
-
+ .car-card ul {
+     padding-left: 15px;
+     list-style-type: none;
+ }
  .car-card h2 {
      margin-top: 0;
  }
 
- .car-card p {
-     margin: 5px 0;
- }
 
- .car-card span {
-     font-weight: bold;
- }
 

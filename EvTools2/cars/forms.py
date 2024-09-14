@@ -1,5 +1,5 @@
 from django import forms
-from .models import EVCar, User, CarModel
+from .models import EVCar, User
 
 
 class UserForm(forms.ModelForm):
@@ -9,9 +9,24 @@ class UserForm(forms.ModelForm):
 
 
 class CarForm(forms.ModelForm):
-
     class Meta:
         model = EVCar
-        fields = '__all__'
-
-
+        fields = [
+            'owner',
+            'brand',
+            'model',
+            'trim_level',
+            'year',
+            'mileage',
+            'asking_price',
+            'battery_capacity',
+            'range',
+            'horsepower',
+            'drivetrain',
+            'body_type',
+            'color',
+            'doors',
+            'vin',
+            'description',
+            'location',
+        ]

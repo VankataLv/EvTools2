@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from EvTools2.cars.forms import UserForm, CarForm
 from EvTools2.cars.models import EVCar
 
-
 def car_index(request):
     cars = EVCar.objects.all()
     context = {'cars': cars, }
@@ -22,15 +21,18 @@ def create_user(request):
     return render(request, 'cars/create_user_form.html', context)
 
 
-def create_car(request):
+def create_ev_car(request):
     if request.method == 'POST':
         form = CarForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('car index')
+        else:
+            print(form.errors)  # Print errors to console or log for debugging
     else:  # request.method == 'GET':
         form = CarForm()
-
     context = {'form': form}
     return render(request, 'cars/create_car_form.html', context)
+
+
 
