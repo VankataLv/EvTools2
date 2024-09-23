@@ -9,12 +9,12 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(CarBrand)
 class CarBrandAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name',]
+    list_display = ['name', 'id',]
 
 
 @admin.register(CarModel)
 class CarModelAdmin(admin.ModelAdmin):
-    list_display = ['id', 'brand', 'name',]
+    list_display = ['brand', 'name', 'id', ]
 
 
 @admin.register(EVCar)

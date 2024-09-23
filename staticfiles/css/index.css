@@ -2,7 +2,13 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
 }
 
 .card {
@@ -21,6 +27,7 @@ main {
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px black solid;
+    max-height: 300px;
 }
 
 .card i {

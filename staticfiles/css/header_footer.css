@@ -1,12 +1,3 @@
-body {
-    background-image: url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    min-height: 100vh; /* Ensure the body covers the entire viewport */
-    display: flex; /* Use flexbox layout */
-    flex-direction: column; /* Make elements flow vertically */
-}
-
 header {
     min-height: 200px;
     background: linear-gradient(90deg, #006400, #00bfff), /* Gradient */
@@ -74,7 +65,8 @@ header {
 /*---------------------------------------------Navigation-----------------------------------------------------*/
  nav {
      margin-top: auto; /* Push the nav to the bottom */
-     background-color: #00bfff;
+     background-color: #1f7d7d;
+     padding: 5px;
  }
 
  nav a {
@@ -90,13 +82,13 @@ header {
  }
 
 
-/*---------------------------------------------Navigation-----------------------------------------------------*/
+/*---------------------------------------------Footer-----------------------------------------------------*/
 footer {
     background: #006400;
     color: white;
     padding: 20px;
     text-align: center;
-    border-top: 5px solid #00bfff;
+    border-top: 10px solid #00bfff;
     flex-shrink: 0; /* Ensure the footer doesn't shrink */
 }
 
@@ -116,6 +108,3 @@ footer {
      font-size: 0.9em;
  }
 
-.main-content {
-    flex-grow: 1; /* Ensure the content takes up the remaining space */
-}
