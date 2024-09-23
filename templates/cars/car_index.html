@@ -12,9 +12,9 @@
             {% if cars %}
                 {% for car in cars %}
                     <article class="car-card">
-                        <header>
+                        <div class="car-header">
                             <h3>{{ car }}</h3>
-                        </header>
+                        </div>
                         <ul>
                             <li><strong>Trim Level:</strong> {{ car.trim_level }}</li>
                             <li><strong>Asking Price:</strong> €{{ car.asking_price|floatformat:2 }}</li>
