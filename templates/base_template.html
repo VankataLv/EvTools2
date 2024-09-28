@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/site_base.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="{% static 'images/icon_image.png' %}">
     {% block styles %}
     {% endblock %}
@@ -12,26 +12,43 @@
 </head>
 <body>
     <header>
-        <div class="logo">EV Tools</div>
-        <div class="tagline">All EV in one spot</div>
-        <div class="create-car-button">
-            <a href="{% url 'create ev car' %}">
-                <button type="button">
-                    <span class="plus-icon">+</span> Sell your EV
-                </button>
-            </a>
+    <div class="logo">EV Tools</div>
+    <div class="tagline">All EV in one spot</div>
+
+  
+    <nav>
+        <div class="forms-buttons">
+        <a href="{% url 'create ev car' %}">
+            <button type="button">
+                <span class="plus-icon">+</span> Sell your EV
+            </button>
+        </a>
         </div>
-        <nav>
+        <div class="links">
             <a href="{% url 'index'%}"><i class="fa-solid fa-house-chimney"></i> Home</a>
             <a href="{% url 'car index'%}"><i class="fa-solid fa-car-side"></i> Cars for sale</a>
-            <a href="#"><i class="fa-solid fa-screwdriver-wrench"></i> Repair & Maintenance</a>
-            <a href="#"><i class="fa-regular fa-handshake"></i> Services</a>
-            <a href="#"><i class="fa-solid fa-gears"></i> Parts</a>
+            <a href="{% url 'under construction'%}"><i class="fa-solid fa-screwdriver-wrench"></i> Repair & Maintenance</a>
+            <a href="{% url 'under construction'%}"><i class="fa-regular fa-handshake"></i> Services</a>
+            <a href="{% url 'under construction'%}"><i class="fa-solid fa-gears"></i> Parts</a>
             <a href="https://ev-database.org/"><i class="fa-solid fa-database"></i> Database</a>
             <a href="https://vsichkotok.bg/"><i class="fa-solid fa-charging-station"></i> Charging</a>
-        </nav>
+        </div>
+        <div class="auth-buttons">
+        <a href="#">
+            <button type="button">
+                <i class="fas fa-user"></i> Sign in
+            </button>
+        </a>
+        <a href="#">
+            <button type="button">
+                <i class="fas fa-user-plus"></i> Register</button>
+        </a>
+    </div>
+    </nav>
     </header>
-    <main>        
+
+
+    <main>
         {% block main_content %}
         {% endblock %}
     </main>

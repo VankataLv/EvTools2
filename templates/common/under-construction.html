@@ -1,0 +1,110 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style>
+        /* Main container with background and border */
+        .under-construction-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8); /* Light white background */
+            border: 3px solid #ddd;
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Smooth fade-in animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animating the construction icon */
+        .under-construction-message i {
+            animation: bounce 1.5s infinite;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Bouncing animation for the icon */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .under-construction-message {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .notify-message {
+            font-size: 2em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px); /* Slight upward motion on hover */
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: white;
+        }
+
+    </style>
+{% endblock %}
+
+{% block main_content %}
+    <div class="under-construction-container">
+        <div class="under-construction-message">
+            🚧 This functionality is still being built!
+        </div>
+        <div class="notify-message">
+            If you sign up, we will notify you as soon as it is ready.
+        </div>
+
+        <div class="button-container">
+            <button onclick="window.history.back()">Go Back</button>
+            <button><a href="#">Sign Up</a></button>
+        </div>
+    </div>
+{% endblock %}

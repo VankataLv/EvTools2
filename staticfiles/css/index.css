@@ -42,6 +42,6 @@ main {
 
 .card:hover {
     background-color: #bbbdbf;
-    transform: translateY(-15px); /* Lift on hover */
+    transform: translateY(-50px); /* Lift on hover */
 
 }
