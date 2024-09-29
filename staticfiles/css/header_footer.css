@@ -17,6 +17,7 @@ header {
     margin-bottom: 10px;
     align-self: start;
     padding-left: 20px;
+    color: white;
 }
 
 .tagline {
@@ -110,10 +111,10 @@ footer .footer-links {
 }
 
 footer a {
-    color: #00bfff;
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
+    color: white;
 }
 
 footer a:hover {

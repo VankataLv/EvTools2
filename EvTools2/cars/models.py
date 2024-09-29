@@ -66,7 +66,7 @@ class CarModel(models.Model):
         unique_together = ('brand', 'name')
 
     def __str__(self):
-        return self.name
+        return f'{self.brand} - {self.name}'
 
 
 class BaseEV(models.Model):
@@ -74,10 +74,34 @@ class BaseEV(models.Model):
         abstract = True
 
     LOCATION_CHOICES = [
-        ('Sofia', 'Sofia'),
-        ('Varna', 'Varna'),
-        ('Burgas', 'Burgas'),
-        ('Not in country', 'Not in country')
+        ('not_in_country', 'Not in country'),
+        ('blagoevgrad', 'Blagoevgrad'),
+        ('burgas', 'Burgas'),
+        ('veliko_tarnvovo', 'Veliko Tarnvovo'),
+        ('vidin', 'Vidin'),
+        ('vratsa', 'Vratsa'),
+        ('gabrovo', 'Gabrovo'),
+        ('dobrich', 'Dobrich'),
+        ('kurdjali', 'Kurdjali'),
+        ('kiustendil', 'Kiustendil'),
+        ('lovech', 'Lovech'),
+        ('montana', 'Montana'),
+        ('pazardjik', 'Pazardjik'),
+        ('pernik', 'Pernik'),
+        ('pleven', 'Pleven'),
+        ('plovdiv', 'Plovdiv'),
+        ('razgrad', 'Razgrad'),
+        ('ruse', 'Ruse'),
+        ('silistra', 'Silistra'),
+        ('sliven', 'Sliven'),
+        ('smolian', 'Smolian'),
+        ('sofia_province', 'Sofia Province'),
+        ('sofia', 'Sofia'),
+        ('stara_zagora', 'Stara Zagora'),
+        ('targovishte', 'Targovishte'),
+        ('haskovo', 'Haskovo'),
+        ('shumen', 'Shumen'),
+        ('yambol', 'Yambol'),
     ]
     owner = models.ForeignKey(User, on_delete=models.CASCADE, related_name='cars')
     asking_price = models.IntegerField(
@@ -107,34 +131,41 @@ class BaseEV(models.Model):
 
 class EVCar(BaseEV):
     DRIVETRAIN_CHOICES = [
-        ("FWD", "Front-wheel drive"),
-        ("RWD", "Rear-wheel drive"),
-        ("AWD", "All-wheel drive"),
+        ("fwd", "Front-wheel drive"),
+        ("rwd", "Rear-wheel drive"),
+        ("awd", "All-wheel drive"),
     ]
+
     BODY_TYPE_CHOICES = [
-        ("Sedan", "Sedan"),
-        ("Hatch", "Hatchback"),
-        ("Station wagon", "Station wagon"),
-        ("Coupe", "Coupe"),
-        ("SUV", "SUV"),
+        ("sedan", "Sedan"),
+        ("hatch", "Hatchback"),
+        ("station_wagon", "Station wagon"),
+        ("coupe", "Coupe"),
+        ("suv", "SUV"),
+        ("pickup_truck", "Pickup Truck"),
+        ("minivan", "Minivan"),
+        ("cabrio", "Cabrio"),
     ]
+
     COLOR_CHOICES = [
-        ("White", "White"),
-        ("Black", "Black"),
-        ("Red", "Red"),
-        ("Blue", "Blue"),
-        ("Orange", "Orange"),
-        ("Yellow", "Yellow"),
-        ("Green", "Green"),
-        ("Gray", "Gray"),
+        ("white", "White"),
+        ("black", "Black"),
+        ("red", "Red"),
+        ("blue", "Blue"),
+        ("orange", "Orange"),
+        ("yellow", "Yellow"),
+        ("green", "Green"),
+        ("gray", "Gray"),
+        ("purple", "Purple"),
+        ("other", "Other"),
     ]
+
     DOORS_CHOICES = [
         (1, 1),
         (2, 2),
         (3, 3),
         (4, 4),
         (5, 5),
-        (6, 6),
     ]
 
     brand = models.ForeignKey(CarBrand, on_delete=models.DO_NOTHING, related_name='cars')
@@ -174,7 +205,7 @@ class EVCar(BaseEV):
     color = models.CharField(
         max_length=15,
         choices=COLOR_CHOICES,
-        default='unknown',
+        default='other',
     )
     doors = models.IntegerField(
         choices=DOORS_CHOICES,
